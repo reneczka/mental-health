@@ -64,3 +64,31 @@ plt.show()
 ![Gender Distribution](images/gender_distribution.png)
 
 The plot shows that there is a significant gender imbalance in the dataset, with the majority of respondents identifying as male. This disparity is important to note as it may influence the outcomes of further analysis, particularly when looking into gender-specific trends or mental health issues.
+
+### Mental Health Treatment Distribution by Gender
+
+```python
+# distribution of mental health treatment by gender
+treatment_by_gender = df.groupby('Gender')['treatment'].value_counts(normalize=True).unstack()
+
+
+fig, axes = plt.subplots(1, 2, figsize=(11, 7))
+
+
+for i, gender in enumerate(treatment_by_gender.index):
+    axes[i].pie(treatment_by_gender.loc[gender], labels=treatment_by_gender.columns, autopct='%1.1f%%', startangle=130)
+    axes[i].set_title(f'{gender}')
+    axes[i].axis('equal')
+
+plt.suptitle('Mental Health Treatment Distribution by Gender', fontsize=15)
+plt.show()
+```
+![Mental Health Treatment Distribution by Gender](images/mental_health_treatment_by_gender.png)
+
+The plot shows the proportion of respondents who have pursued mental health treatment, categorized by gender:
+
+Female: A larger percentage of females (69.4%) have sought mental health treatment compared to those who have not (30.6%).
+
+Male: The data shows a more balanced distribution among males, with 46.3% having sought treatment and 53.7% not seeking treatment.
+This disparity between genders suggests that females in this dataset are more likely to seek mental health treatment compared to males. Understanding these differences is crucial for addressing gender-specific barriers to mental health care.
+
