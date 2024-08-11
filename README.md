@@ -92,3 +92,40 @@ Female: A larger percentage of females (69.4%) have sought mental health treatme
 Male: The data shows a more balanced distribution among males, with 46.3% having sought treatment and 53.7% not seeking treatment.
 This disparity between genders suggests that females in this dataset are more likely to seek mental health treatment compared to males. Understanding these differences is crucial for addressing gender-specific barriers to mental health care.
 
+### Number of Responses per Country
+```python
+# number of responses per country
+
+country_counts = df['Country'].value_counts()
+
+plt.figure(figsize=(12, 8))
+
+color_palette = sns.color_palette("viridis", len(country_counts))
+
+bars = sns.barplot(x=country_counts.index, y=country_counts.values, palette=color_palette)
+
+plt.title('Number of Responses per Country', fontsize=15)
+plt.xlabel('Country', fontsize=15)
+plt.ylabel('Count', fontsize=15)
+
+plt.xticks(rotation=45, ha='right', fontsize=12)
+
+plt.yscale('log')
+
+handles = [plt.Rectangle((0, 0), 1, 1, color=palette[i]) for i in range(len(palette))]
+labels = [f"{country} ({count})" for country, count in country_counts.items()]
+legend = plt.legend(handles, labels, title='Country (Count)', bbox_to_anchor=(1.03, 1.055), loc='upper left', fontsize=10)
+legend.get_frame().set_visible(False)
+
+plt.show()
+
+```
+![Number of Responses per Country](images/number_of_responses_per_country.png)
+
+The bar plot illustrates the number of responses received from each country in the dataset. The y-axis is displayed on a logarithmic scale to accommodate the wide range of response counts across different countries.
+
+The plot reveals that the majority of responses come from the United States, followed by the United Kingdom and Canada. This distribution reflects a significant concentration of data in a few countries, which could influence the representativeness of the findings. Smaller numbers of responses were recorded in other countries, making it essential to consider potential biases when interpreting the data.
+
+The color legend to the right of the plot helps in identifying each country along with the exact number of responses received.
+
+
