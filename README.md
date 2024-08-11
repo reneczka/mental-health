@@ -67,6 +67,9 @@ The plot shows that there is a significant gender imbalance in the dataset, with
 
 ### Mental Health Treatment Distribution by Gender
 
+The pie plot shows the proportion of respondents who have pursued mental health treatment, categorized by gender.
+
+
 ```python
 # distribution of mental health treatment by gender
 treatment_by_gender = df.groupby('Gender')['treatment'].value_counts(normalize=True).unstack()
@@ -85,7 +88,6 @@ plt.show()
 ```
 ![Mental Health Treatment Distribution by Gender](images/mental_health_treatment_by_gender.png)
 
-The plot shows the proportion of respondents who have pursued mental health treatment, categorized by gender:
 
 Female: A larger percentage of females (69.4%) have sought mental health treatment compared to those who have not (30.6%).
 
@@ -93,6 +95,9 @@ Male: The data shows a more balanced distribution among males, with 46.3% having
 This disparity between genders suggests that females in this dataset are more likely to seek mental health treatment compared to males. Understanding these differences is crucial for addressing gender-specific barriers to mental health care.
 
 ### Number of Responses per Country
+
+The bar plot illustrates the number of responses received from each country in the dataset. The y-axis is displayed on a logarithmic scale to accommodate the wide range of response counts across different countries.
+
 ```python
 # number of responses per country
 
@@ -122,10 +127,40 @@ plt.show()
 ```
 ![Number of Responses per Country](images/number_of_responses_per_country.png)
 
-The bar plot illustrates the number of responses received from each country in the dataset. The y-axis is displayed on a logarithmic scale to accommodate the wide range of response counts across different countries.
-
 The plot reveals that the majority of responses come from the United States, followed by the United Kingdom and Canada. This distribution reflects a significant concentration of data in a few countries, which could influence the representativeness of the findings. Smaller numbers of responses were recorded in other countries, making it essential to consider potential biases when interpreting the data.
 
 The color legend to the right of the plot helps in identifying each country along with the exact number of responses received.
+
+### Treatment Distribution by Country
+
+The bar plot below illustrates the distribution of respondents who have or have not sought mental health treatment, broken down by country. The bars are stacked to show the proportion of each category (treatment sought vs. not sought) within each country.
+
+```python
+# treatment by country
+treatment_by_country = df.groupby('Country')['treatment'].value_counts(normalize=True).unstack()
+
+plt.figure(figsize=(15, 8))  
+treatment_by_country.plot(kind='bar', stacked=True, ax=plt.gca())
+plt.title('Treatment Distribution by Country')
+plt.ylabel('Proportion')
+
+plt.xticks(rotation=45, ha='right')
+
+plt.show()
+```
+
+![Treatment Distribution by Country](images/treatment_distribution_by_country.png)
+
+The plot shows how the proportion of respondents seeking mental health treatment varies across different countries. The orange segments represent those who have sought treatment, while the blue segments represent those who have not.
+
+This visualization highlights significant differences between countries in terms of mental health treatment-seeking behavior. For example, in some countries, a larger proportion of respondents have sought treatment, while in others, the majority have not. Understanding these variations is important for identifying potential barriers to accessing mental health care in different regions.
+
+- **General Trend**: European and North American countries generally show a higher proportion of respondents who have sought treatment for mental health issues. This could be due to better access to services, higher awareness, and reduced stigma.
+
+- **Barriers in Asia and Africa**: Countries in Asia and Africa, such as India and Nigeria, show a lower proportion of individuals seeking treatment, highlighting possible cultural stigmas or significant barriers to accessing mental health care.
+
+- **Differences**: There is variability within continents as well, with some countries showing more balanced distributions and others showing a clear trend of respondents not seeking treatment.
+
+- **Countries with Uniform Responses**: The plot also includes some countries where respondents provided only one type of answer—either all "Yes" or all "No" responses to seeking treatment. This could indicate a very small sample size or the respondents from these countries might not represent the general population, possibly due to the way the survey was distributed or who chose to participate.
 
 
