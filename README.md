@@ -1,9 +1,32 @@
 # Mental Health Analysis Project
 
 ## Overview
-This project aims to analyze mental health trends based on a large dataset containing various factors related to mental health. The dataset includes information such as gender, country, occupation, and several indicators of mental health status. The analysis focuses on understanding patterns and correlations within the data to gain insights into mental health trends and issues.
+This project analyzes mental health trends, symptoms, and care-seeking behavior using a dataset sourced from Kaggle, curated by Bhavik Jikadara. The dataset encompasses responses from individuals worldwide, offering valuable insights into various mental health conditions, their perceived causes, and the demographics of those affected. By leveraging this dataset, the project aims to reveal patterns and correlations that could help organizations, researchers, and mental health professionals understand the prevalence of mental health issues and identify gaps in support systems.
+
+### Key Features
+
+- **Demographic Analysis**: Investigate mental health patterns across different age groups, genders, and regions.
+- **Symptom and Condition Insights**: Analyze the prevalence of various symptoms and conditions to understand common mental health issues faced globally.
+- **Healthcare Access and Support**: Assess how factors like employment, location, and workplace policies influence access to mental health support and treatment.
+- **Data-Driven Visualizations**: Display meaningful trends and findings through interactive and intuitive visualizations.
+
+### Project Goals
+
+- **Identify** patterns in mental health conditions and symptoms.
+- **Explore** correlations between demographics and mental health support access.
+- **Provide** actionable insights for mental health policy-making and awareness.
+
+---
 
 ## Dataset
+The dataset includes:
+- **Demographic Information**: Age, gender, nationality, and more.
+- **Mental Health Conditions**: Conditions such as anxiety, depression, and other common mental health issues.
+- **Treatment and Care Access**: Insights into how individuals seek or experience mental health support.
+
+**Dataset Source**: [Kaggle Mental Health Dataset](https://www.kaggle.com/datasets/bhavikjikadara/mental-health-dataset?resource=download)
+
+
 The dataset used in this project is named `Mental Health Dataset.csv` and contains 292,364 entries with the following columns:
 
 - `Timestamp`: The date and time when the data was recorded.
@@ -23,144 +46,100 @@ The dataset used in this project is named `Mental Health Dataset.csv` and contai
 - `Social_Weakness`: Whether the respondent experiences social weakness.
 - `mental_health_interview`: Whether the respondent has had a mental health interview.
 - `care_options`: The care options available to the respondent.
-
+---
 ### Data Loading and Initial Exploration
 
-```python
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-# loading the dataset
-df = pd.read_csv('Mental Health Dataset.csv')
-
-# displaying the first rows of the dataset
-df.head()
-
-# displaying information about the dataset
-df.info()
-
-# checking for missing values
-df.isnull().sum()
-
-# filling missing values in 'self_employed' with 'Unknown'
-df['self_employed'].fillna('Unknown', inplace=True)
-```
-
-## Exploratory Data Analysis
-### Gender Distribution
-The first step in the exploratory data analysis was to understand the distribution of genders within the dataset. A bar plot was generated to visualize this distribution, as shown below:
-
-```python
-# creating a plot of gender distribution
-plt.figure(figsize=(10, 6))
-sns.countplot(data=df, x='Gender')
-plt.title('Distribution of Gender')
-plt.xlabel('Gender')
-plt.ylabel('Count')
-plt.show()
-```
-
-![Gender Distribution](images/gender_distribution.png)
-
-The plot shows that there is a significant gender imbalance in the dataset, with the majority of respondents identifying as male. This disparity is important to note as it may influence the outcomes of further analysis, particularly when looking into gender-specific trends or mental health issues.
-
-### Mental Health Treatment Distribution by Gender
-
-The pie plot shows the proportion of respondents who have pursued mental health treatment, categorized by gender.
+Due to the presence of missing values in the `self_employed` column, it was necessary to address these gaps to ensure the integrity of the analysis. Missing values in this column were filled with the value `"Unknown"`.
 
 
-```python
-# distribution of mental health treatment by gender
-treatment_by_gender = df.groupby('Gender')['treatment'].value_counts(normalize=True).unstack()
+## Demographic Overview
 
-
-fig, axes = plt.subplots(1, 2, figsize=(11, 7))
-
-
-for i, gender in enumerate(treatment_by_gender.index):
-    axes[i].pie(treatment_by_gender.loc[gender], labels=treatment_by_gender.columns, autopct='%1.1f%%', startangle=130)
-    axes[i].set_title(f'{gender}')
-    axes[i].axis('equal')
-
-plt.suptitle('Mental Health Treatment Distribution by Gender', fontsize=15)
-plt.show()
-```
-![Mental Health Treatment Distribution by Gender](images/mental_health_treatment_by_gender.png)
-
-
-Female: A larger percentage of females (69.4%) have sought mental health treatment compared to those who have not (30.6%).
-
-Male: The data shows a more balanced distribution among males, with 46.3% having sought treatment and 53.7% not seeking treatment.
-This disparity between genders suggests that females in this dataset are more likely to seek mental health treatment compared to males. Understanding these differences is crucial for addressing gender-specific barriers to mental health care.
+These preliminary analyses offer an overview of the key demographic and foundational metrics within the dataset.
 
 ### Number of Responses per Country
 
 The bar plot illustrates the number of responses received from each country in the dataset. The y-axis is displayed on a logarithmic scale to accommodate the wide range of response counts across different countries.
 
-```python
-# number of responses per country
 
-country_counts = df['Country'].value_counts()
-
-plt.figure(figsize=(12, 8))
-
-color_palette = sns.color_palette("viridis", len(country_counts))
-
-bars = sns.barplot(x=country_counts.index, y=country_counts.values, palette=color_palette)
-
-plt.title('Number of Responses per Country', fontsize=15)
-plt.xlabel('Country', fontsize=15)
-plt.ylabel('Count', fontsize=15)
-
-plt.xticks(rotation=45, ha='right', fontsize=12)
-
-plt.yscale('log')
-
-handles = [plt.Rectangle((0, 0), 1, 1, color=palette[i]) for i in range(len(palette))]
-labels = [f"{country} ({count})" for country, count in country_counts.items()]
-legend = plt.legend(handles, labels, title='Country (Count)', bbox_to_anchor=(1.03, 1.055), loc='upper left', fontsize=10)
-legend.get_frame().set_visible(False)
-
-plt.show()
-
-```
 ![Number of Responses per Country](images/number_of_responses_per_country.png)
 
 The plot reveals that the majority of responses come from the United States, followed by the United Kingdom and Canada. This distribution reflects a significant concentration of data in a few countries, which could influence the representativeness of the findings. Smaller numbers of responses were recorded in other countries, making it essential to consider potential biases when interpreting the data.
 
 The color legend to the right of the plot helps in identifying each country along with the exact number of responses received.
 
+### Gender Distribution
+The first step in the exploratory data analysis was to understand the distribution of genders within the dataset. A bar plot was generated to visualize this distribution, as shown below:
+
+![Gender Distribution](images/gender_distribution.png)
+
+The plot shows that there is a significant gender imbalance in the dataset, with the majority of respondents identifying as male. This disparity is important to note as it may influence the outcomes of further analysis, particularly when looking into gender-specific trends or mental health issues.
+
+### Self-employment Distribution
+
+![Self-employment Distribution](images/self_employment_distribution.png)
+
+The bar plot shows that the majority of respondents are not self-employed, with over 250,000 indicating this status. Around 30,000 respondents are self-employed, while a small portion, classified as "Unknown", reflects missing data.
+
+This suggests that most participants work in traditional employment rather than being self-employed, which could influence their access to mental health support. The "Unknown" category highlights a limitation due to missing data that may affect analysis accuracy.
+
+### Days Indoors Distribution
+
+![Days Indoors Distribution](images/days_indoors_distribution.png)
+
+
+The bar chart illustrates how long respondents have stayed indoors:
+- `Every day`: Nearly 60,000 respondents.
+- `1-14 days`: The most common duration, with around 65,000 respondents.
+- `31-60 days`: About 60,000 respondents.
+- `15-30 days` and `>2 months`: Both have around 55,000 respondents.
+
+Most respondents stayed indoors for 1-14 days, while nearly 60,000 respondents indicated going out daily. Extended stays of more than 2 months are also significant, suggesting varied impacts on lifestyles and potentially mental health.
+
+## Mental Health Treatment Insights
+This section focuses on understanding how different demographics are affected by mental health treatment. It sets the foundation for exploring what factors influence the decision to seek treatment.
+
+### Mental Health Treatment Distribution
+
+![Mental Health Treatment Distribution](images/mental_health_treatment_distribution.png)
+
+In this bar plot, we observe two bars:
+
+- `Yes`: Indicates respondents who have sought treatment for mental health issues.
+- `No`: Indicates respondents who have not sought treatment.
+
+This plot shows that there is a nearly even distribution between those who have received treatment and those who have not. This suggests that, while there is a substantial awareness or acceptance of seeking mental health care, a large number of individuals still do not pursue treatment. Further analysis could investigate which factors, such as demographic or occupational status, correlate with the likelihood of seeking treatment.
+
+### Gender Distribution - Mental Health Treatment
+
+![Gender Distribution - Mental Health Treatment](images/mental_health_treatment_by_gender.png)
+
+
+- `Female Chart`:
+Approximately `69%` of females have sought mental health treatment.
+About `31%` have not sought treatment.
+This indicates a higher rate of mental health treatment-seeking behavior among females.
+- `Male Chart`:
+Approximately `46%` of males have sought treatment.
+About `54%` have not.
+This suggests that a lower proportion of males pursue treatment, which could reflect gender-related stigmas or differing access to mental health support.
+
+The comparison highlights a significant gender gap, with females being more likely to seek mental health treatment than males. This pattern could have implications for targeted mental health support campaigns and resource allocation by gender.
+
 ### Treatment Distribution by Country
-
-The bar plot below illustrates the distribution of respondents who have or have not sought mental health treatment, broken down by country. The bars are stacked to show the proportion of each category (treatment sought vs. not sought) within each country.
-
-```python
-# treatment by country
-treatment_by_country = df.groupby('Country')['treatment'].value_counts(normalize=True).unstack()
-
-plt.figure(figsize=(15, 8))  
-treatment_by_country.plot(kind='bar', stacked=True, ax=plt.gca())
-plt.title('Treatment Distribution by Country')
-plt.ylabel('Proportion')
-
-plt.xticks(rotation=45, ha='right')
-
-plt.show()
-```
 
 ![Treatment Distribution by Country](images/treatment_distribution_by_country.png)
 
-The plot shows how the proportion of respondents seeking mental health treatment varies across different countries. The orange segments represent those who have sought treatment, while the blue segments represent those who have not.
 
-This visualization highlights significant differences between countries in terms of mental health treatment-seeking behavior. For example, in some countries, a larger proportion of respondents have sought treatment, while in others, the majority have not. Understanding these variations is important for identifying potential barriers to accessing mental health care in different regions.
 
-- **General Trend**: European and North American countries generally show a higher proportion of respondents who have sought treatment for mental health issues. This could be due to better access to services, higher awareness, and reduced stigma.
+## Employment and Occupation Factors
 
-- **Barriers in Asia and Africa**: Countries in Asia and Africa, such as India and Nigeria, show a lower proportion of individuals seeking treatment, highlighting possible cultural stigmas or significant barriers to accessing mental health care.
+###
 
-- **Differences**: There is variability within continents as well, with some countries showing more balanced distributions and others showing a clear trend of respondents not seeking treatment.
+###
 
-- **Countries with Uniform Responses**: The plot also includes some countries where respondents provided only one type of answer—either all "Yes" or all "No" responses to seeking treatment. This could indicate a very small sample size or the respondents from these countries might not represent the general population, possibly due to the way the survey was distributed or who chose to participate.
+###
+
+
+
 
 
