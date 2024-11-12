@@ -1,7 +1,16 @@
 # Mental Health Analysis Project
 
 ## Overview
-This project analyzes mental health trends, symptoms, and care-seeking behavior using a dataset sourced from Kaggle, curated by Bhavik Jikadara. The dataset encompasses responses from individuals worldwide, offering valuable insights into various mental health conditions, their perceived causes, and the demographics of those affected. By leveraging this dataset, the project aims to reveal patterns and correlations that could help organizations, researchers, and mental health professionals understand the prevalence of mental health issues and identify gaps in support systems.
+
+This project analyzes mental health trends, symptoms, and care-seeking behavior using a dataset sourced from Kaggle, curated by Bhavik Jikadara. The dataset encompasses responses from individuals worldwide and was collected between **August 27, 2014, and February 1, 2016**. This period offers valuable insights into various mental health conditions, their perceived causes, and the demographics of those affected.
+
+
+### Implications of Using an Older Dataset
+
+The dataset was chosen for its comprehensive size and the variety of interesting insights it offers, even though the documentation was not highly detailed.
+
+While the data provides significant value in identifying patterns and correlations to aid organizations, researchers, and mental health professionals, it’s essential to consider the implications of its age. Changes in societal attitudes, mental health awareness, and treatment accessibility over time mean that some trends observed may not fully reflect the current state of mental health issues and support systems. Despite this, the dataset remains a vital resource for understanding foundational trends and longstanding gaps in mental health support.
+
 
 ### Key Features
 
@@ -72,7 +81,7 @@ The first step in the exploratory data analysis was to understand the distributi
 
 ![Gender Distribution](images/gender_distribution.png)
 
-The plot shows that there is a significant gender imbalance in the dataset, with the majority of respondents identifying as male. This disparity is important to note as it may influence the outcomes of further analysis, particularly when looking into gender-specific trends or mental health issues.
+The plot shows that there is a significant gender imbalance in the dataset, with the majority of respondents identifying as male. This disparity is important to note as it may influence the outcome of further analysis, particularly when looking into gender-specific trends or mental health issues.
 
 ### Self-employment Distribution
 
@@ -115,7 +124,7 @@ This plot shows that there is a nearly even distribution between those who have 
 
 
 - `Female Chart`:
-Approximately `69%` of females have sought mental health treatment.
+Approximately `69%` of females have tried mental health treatment.
 About `31%` have not sought treatment.
 This indicates a higher rate of mental health treatment-seeking behavior among females.
 - `Male Chart`:
@@ -125,21 +134,67 @@ This suggests that a lower proportion of males pursue treatment, which could ref
 
 The comparison highlights a significant gender gap, with females being more likely to seek mental health treatment than males. This pattern could have implications for targeted mental health support campaigns and resource allocation by gender.
 
-### Treatment Distribution by Country
-
-![Treatment Distribution by Country](images/treatment_distribution_by_country.png)
-
-
 
 ## Employment and Occupation Factors
-
-###
-
-###
-
-###
+These analyses dive into how employment status and occupation relate to mental health. The focus is on identifying occupation-related trends that impact treatment and prevalence.
 
 
+### Relationship between Self-employment and Mental Health Treatment
 
+![Relationship between Self-employment and Treatment](images/self_employment_and_treatment_distribution.png)
+
+The bar plot shows the relationship between self-employment status and mental health treatment. Respondents are divided into 3 groups: `No` (not self-employed), `Yes` (self-employed), and `Unknown` (missing data). Each category is split into those who received treatment (blue bar) and those who did not (orange bar).
+
+- `Not Self-Employed`: Most respondents are not self-employed, with a balanced split between those who sought treatment and those who did not. Slightly more received treatment.
+
+- `Self-Employed`: Fewer self-employed individuals sought treatment, suggesting barriers like affordability or lack of benefits.
+
+- `Unknown`: Few respondents fall into this category, indicating limited impact on trends.
+
+The chart suggests that self-employed individuals are less likely to seek treatment, possibly due to affordability or lack of structured support.
+
+
+### Distribution of Mental Health History by Occupation
+
+![Distribution of Mental Health History by Occupation](images/mental_health_history_by_occupation_distribution.png)
+
+The bar plot above illustrates the distribution of mental health history across different occupations, categorized as `Yes` (has mental health history), `No` (does not have), and `Maybe` (uncertain). The occupations include:
+
+`Corporate`: The highest number of respondents marked "Maybe", showing potential uncertainty about mental health issues. A significant number also reported "No" and "Yes" in close proportions.
+
+`Student`: Students report the highest number in the "No" category, with fewer indicating mental health issues, either as "Yes" or "Maybe". This could reflect a lack of awareness or under-reporting among younger individuals.
+
+`Business`: Business professionals reported fewer "Maybe" responses compared to other occupations but have a balanced distribution between "No" and "Yes". 
+
+`Housewife`: Respondents classified as housewives have a notable distribution across all categories, with slightly higher counts in "Maybe" and "No". This suggests varied mental health awareness or challenges that could be linked to social and domestic pressures.
+
+`Others`: The "Others" category shows a diverse attitude mental health landscape with a significant number reporting "Yes". This indicates a wide range of experiences depending on the varied job roles included in this category.
+
+This distribution suggests that occupation can influence both the awareness and acknowledgment of mental health issues, with varied trends across different job roles.
+
+
+## Environmental and Lifestyle Impacts on Mental Health
+
+This section explores the relationship between environmental and lifestyle factors like time spent indoors, stress, and changes in habits with mental health issues and treatment.
+
+### Relationship Between Days Spent Indoors and Mental Health History
+
+![Relationship Between Days Spent Indoors and Mental Health History](images/days_indoors_and_mental_health_history.png)
+
+The bar chart shows the relationship between days spent indoors and respondents' mental health history, categorized as `Yes` , `No` and `Maybe`. The categories for days indoors include:
+
+`Go Out Every Day`: **No** leads with ~23,000 respondents, followed by **"Yes"** at ~20,000, and **Maybe** at ~16,000. Suggests fewer mental health challenges for those going out every day.
+
+`1-14 Days Indoors`: **No** has the highest count (~27,000), followed by **"Yes"** (~19,000), and **Maybe** (~18,000). Indicates fewer reported mental health issues for short periods spent indoors.
+
+`15-30 Days Indoors`: **Yes** leads with ~22,000, which indicates increased reported mental health issues. **Maybe** (~16,000) and **No** (~17,000) follow.
+
+`31-60 Days Indoors`: Similar pattern with **Yes** at ~17,000, suggesting longer stays correlate with increased acknowledgment of mental health challenges.
+
+`More than 2 Months Indoors`: **Maybe** leads (~22,000), suggesting potential uncertainty or undiagnosed issues, with **Yes** (~17,000) and **No** (~18,000).
+
+- **Short indoor stays (1-14 days)** show more "No" responses, indicating fewer mental health issues.
+- **15-30 days indoors** increased "Yes" responses, implying more recognition of mental health issues.
+- **More than a month indoors** have the highest "Maybe" responses, suggesting more uncertainty.
 
 
