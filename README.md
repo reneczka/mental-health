@@ -197,4 +197,95 @@ The bar chart shows the relationship between days spent indoors and respondents'
 - **15-30 days indoors** increased "Yes" responses, implying more recognition of mental health issues.
 - **More than a month indoors** have the highest "Maybe" responses, suggesting more uncertainty.
 
+### Coping Struggles by Days Spent Indoors
+
+![Coping Struggles by Days Spent Indoors](images/coping_struggles_by_days_spent_indoors.png)
+
+The bar chart shows the relationship between the number of days respondents spent indoors and their reported coping struggles, categorized as `Yes` (struggled with coping) and `No` (did not struggle). The categories for days spent indoors include:
+
+`Go out Every Day`: **Yes** leads with ~30,000 respondents, while **No** follows closely with ~28,000. This suggests that even when going out daily, many individuals still experience coping challenges.
+
+`1-14 Days Indoors`: **No** has the highest count (~37,000), indicating that most respondents did not struggle during short indoor periods. **Yes** responses are lower, at ~26,000, showing fewer coping issues for short-term indoor stays.
+
+`15-30 Days Indoors`: **No** remains higher at ~31,000, but **Yes** is not far behind at ~24,000. This suggests that staying indoors for up to a month begins to increase coping struggles for more respondents.
+
+`31-60 Days Indoors`: **Yes** surpasses **No** with ~32,000 respondents, compared to **No** at ~30,000. This indicates that this period marks a critical point where more people report struggles compared to those who do not.
+
+`More than 2 Months Indoors`: **No** responses are slightly higher at ~30,000, while **Yes** follows closely at ~27,000. This slight shift suggests that some adaptation may occur over longer periods, though many still struggle.
+
+- **Short indoor durations (up to 14 days)** are associated with fewer coping struggles, as indicated by a significant majority of "No" responses.
+- **31-60 days indoors** show the highest number of "Yes" responses, highlighting this period as a peak time for reported coping difficulties.
+- **More than 2 months indoors** sees a slight recovery with more "No" responses, potentially indicating adaptation or data nuances that should be verified.
+
+
+### Relationship Between Growing Stress and Coping Struggles
+
+![Relationship Between Growing Stress and Coping Struggles](images/relationship_between_growing_stress_and_coping_struggles.png)
+
+The bar chart above illustrates the relationship between respondents' experiences of growing stress and their reported coping struggles, categorized as `Yes` (struggled with coping) and `No` (did not struggle). The categories for growing stress responses include:
+
+`Yes (Growing Stress)`: 
+- **No (Did not struggle)**: ~52,000 respondents.
+- **Yes (Struggled)**: ~47,000 respondents.
+- **Observation**: A significant portion of respondents experiencing growing stress still report not struggling to cope, although the numbers are close. This indicates that while growing stress is prevalent, a large number of people manage to cope effectively.
+
+`No (No Growing Stress)`:
+- **No**: ~47,000 respondents.
+- **Yes**: ~47,000 respondents.
+An almost equal number of respondents reported coping and struggling. This suggests that even without growing stress, individuals experience varying levels of coping success, indicating that other factors might be at play.
+
+`Maybe (Uncertain if Growing Stress)`:
+- **No**: ~55,000 respondents.
+- **Yes**: ~47,000 respondents.
+A notable number of respondents who were uncertain about growing stress reported not struggling. However, a significant number did report struggles, implying that uncertainty about stress can still correlate with coping challenges.
+
+### Relationship Between Growing Stress and Mental Health Treatment
+
+![Relationship Between Growing Stress and Mental Health Treatment](images/relationship_between_growing_stress_and_mental_health_treatment.png)
+
+The bar chart illustrates the relationship between respondents' experiences of growing stress and whether they have sought mental health treatment, categorized as `Yes` (has received treatment) and `No` (has not received treatment). 
+
+This analysis shows that while growing stress often correlates with seeking treatment, a considerable number of individuals do not pursue mental health care even when experiencing stress. Similarly, the decision to seek treatment among those without or unsure of stress levels indicates that mental health care access may be based on factors beyond current stress perception. 
+
+
+## Comprehensive Analysis and Correlations
+
+Finally, we bring everything together by examining overall relationships between the different factors and looking for overarching trends. This helps in identifying major influencing elements.
+
+![Correlation Heatmap](images/heatmap.png)
+
+# Correlation Heatmap Interpretation
+
+### General Overview
+The correlations between variables are mostly low, indicating that there isn't a strong linear relationship between most of the variables. The color intensity and numerical values help identify where any significant correlations might exist.
+
+
+**Days_Indoors**:
+   - **Growing_Stress (0.046)**: A very weak positive correlation, suggesting that spending more days indoors might be slightly associated with increased stress.
+   - **Work_Interest (-0.042)**: A very weak negative correlation, indicating that as days indoors increase, interest in work might slightly decrease.
+
+**Growing_Stress**:
+   - **Work_Interest (0.066)**: A slightly positive correlation, implying that an increase in stress could be linked to a slight increase in work interest, but the relationship is weak.
+   - **Social_Weakness (0.051)**: A weak positive correlation, suggesting stress might be associated with a minor increase in social weakness.
+
+**Changes_Habits**:
+   - Shows weak or negligible correlations with most variables, implying that changes in habits don’t have a significant direct relationship with the other factors.
+
+**Mental_Health_History**:
+   - **Work_Interest (0.085)**: A positive, yet weak, correlation, suggesting that individuals with a mental health history might show a slight increase in work interest.
+   - **Social_Weakness (-0.092)**: A weak negative correlation, which may suggest that having a mental health history is slightly associated with a decrease in social weakness.
+
+**Mood_Swings**:
+   - Generally shows very low correlations with other variables, indicating that mood swings don’t significantly correlate with the other factors in this dataset.
+
+**Coping_Struggles**:
+   - **Work_Interest (0.04)**: A very weak positive correlation, indicating that struggles with coping might have a minimal link with work interest.
+   - Very weak correlations with other variables imply little to no significant relationships.
+
+**Work_Interest**:
+   - Shows weak positive and negative correlations with most variables, indicating that work interest is only slightly influenced by the other factors in the dataset.
+
+**Social_Weakness**:
+   - Has weak correlations with other variables, but **Mental_Health_History (-0.092)** and **Mood_Swings (-0.089)** show a slight negative relationship, suggesting that these variables might be associated with reduced social weakness.
+
 
