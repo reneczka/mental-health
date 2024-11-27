@@ -1,9 +1,10 @@
-# Mental Health Analysis Project
+# Mental Health Data Analysis
 
 ## Overview
 
-This project analyzes mental health trends, symptoms, and care-seeking behavior using a dataset sourced from Kaggle, curated by Bhavik Jikadara. The dataset encompasses responses from individuals worldwide and was collected between **August 27, 2014, and February 1, 2016**. This period offers valuable insights into various mental health conditions, their perceived causes, and the demographics of those affected.
+This project analyzes mental health trends, symptoms, and care-seeking behavior using a [dataset sourced from Kaggle, curated by Bhavik Jikadara](https://www.kaggle.com/datasets/bhavikjikadara/mental-health-dataset?resource=download). The dataset encompasses responses from individuals worldwide and was collected between **August 27, 2014, and February 1, 2016**. This period offers valuable insights into various mental health conditions, their perceived causes, and the demographics of those affected.
 
+### Table of Contents
 
 ### Implications of Using an Older Dataset
 
